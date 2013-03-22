@@ -42,8 +42,6 @@ public class healthGUI : guiElement
 	}
     public override void draw()
     {
-		
-	
         Color oldGUIColor = GUI.color; //
         if (player.get_dead())
         {
@@ -52,29 +50,13 @@ public class healthGUI : guiElement
         }
         else
         {
-		//	 GUI.color = Color.red;
-			//GUI.color = Color.green;
-//			foreach(Node n in nodes)
-//			{
-//			  GUI.Label(new Rect((n.left)*3,100+n.height*(Mathf.Sin((float)n.angle)),5,5),dot,"");	
-//			}
+
 			g = (1.0f)*(((float)player.get_curHealth())/((float)PlayerCharacter.START_HEALTH));
 			r = (1.0f - g);
-			//GUI.Label(new Rect(0f,100f,100f,0.01f),dot,"Box");	
-			//float r = (float)(255-(255*((float)(player.get_curHealth())/(float)(PlayerCharacter.START_HEALTH))));
-			//float g = (float)(255/((float)(player.get_curHealth())/(float)(PlayerCharacter.START_HEALTH)));
-		//	float r = 255f;
-          //  float r = (255/(PlayerCharacter.START_HEALTH*0.25f)) * Mathf.Min(PlayerCharacter.START_HEALTH*0.25f, PlayerCharacter.START_HEALTH - player.get_curHealth());//
-          //  float g = (255/(PlayerCharacter.START_HEALTH*0.75f)) * Mathf.Min(PlayerCharacter.START_HEALTH*0.75f, player.get_curHealth());//
+
             Color c = new Color(r, g, b);
 			
-            //Debug.Log(c);
-            GUI.color = c; //not working; only gets kinda yellow
-			//GUI.color = new Color(255, 127, 0);
-            //if (player.get_curHealth() >= 75) { GUI.color = Color.green; } //
-            //else if (player.get_curHealth() >= 50) { GUI.color = Color.yellow; } //
-            //else if (player.get_curHealth() >= 25) { GUI.color = new Color(255, 127, 0); } // 
-            //else { GUI.color = Color.red; } //
+            GUI.color = c;
 			
             GUI.Box(new Rect(10, 10, player.get_barLength(), 20), ""); //
 			

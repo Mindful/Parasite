@@ -168,7 +168,11 @@ public class PlayerCharacter : healthObject {
 		rearCamera.enabled = false;
 		
 		firstUtility = utilityObject.getUtility(this.gameObject, utility1);
+        firstUtility.setNum(1);
+        firstUtility.setHuman(true);
         secondUtility = utilityObject.getUtility(this.gameObject, utility2);
+        secondUtility.setNum(2);
+        secondUtility.setHuman(true);
 
 //		for (int i = 0; i < weapons.Length; i++)
 //			{

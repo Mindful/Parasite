@@ -1,13 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class utilityObject : MonoBehaviour
+public class utilityObject : useObject
 {
-    protected int num = 0, cost;
-    protected float nextUse = 0, cooldown;
-    protected PlayerCharacter user;
-	protected string name;
-
+    protected int cost;
 
     public static utilityObject getUtility(GameObject obj, int num)
     {
@@ -31,31 +27,11 @@ public class utilityObject : MonoBehaviour
         user = this.GetComponent<PlayerCharacter>();
     }
 
-    public int getNum()
-    {
-        return num;
-    }
     public int getCost()
     {
         return cost;
     }
 
-    public bool isReady()
-    {
-        return (Time.time > nextUse);
-    }
-
-    public float getCooldown()
-    {
-        if (isReady())
-        {
-            return 0;
-        }
-        else
-        {
-            return nextUse - Time.time;
-        }
-    }
 
     public void use() 
 	{
