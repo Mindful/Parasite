@@ -93,6 +93,7 @@ public class PlayerCharacter : healthObject {
     private healthGUI gui_health;
 	private optionsGUI gui_options;
 	private menuGUI gui_menu;
+    private cooldownsGUI gui_cooldowns;
     private List<guiElement> gui = new List<guiElement>();
     //end GUI
 
@@ -133,11 +134,21 @@ public class PlayerCharacter : healthObject {
 		//animation["idle"].layer = 1;
 		//animation["walk"].layer = 2;
 		//animation["attack"].layer = 3;
+
+        //Utilities must be set before GUI initialization
+        firstUtility = utilityObject.getUtility(this.gameObject, utility1);
+        firstUtility.setNum(1);
+        firstUtility.setHuman(true);
+        secondUtility = utilityObject.getUtility(this.gameObject, utility2);
+        secondUtility.setNum(2);
+        secondUtility.setHuman(true);
 		
 		gui_error = add_gui<errorGUI>();
         gui_health = add_gui<healthGUI>();
 		gui_options = add_gui<optionsGUI>();
 		gui_menu = add_gui<menuGUI>();
+        gui_cooldowns = add_gui<cooldownsGUI>();
+        
 		
 		gui_options.quality = QualitySettings.GetQualityLevel();
 		gui_options.drawDisabled = true;
@@ -167,12 +178,6 @@ public class PlayerCharacter : healthObject {
 		rearCameraObject = rearCamera.gameObject;
 		rearCamera.enabled = false;
 		
-		firstUtility = utilityObject.getUtility(this.gameObject, utility1);
-        firstUtility.setNum(1);
-        firstUtility.setHuman(true);
-        secondUtility = utilityObject.getUtility(this.gameObject, utility2);
-        secondUtility.setNum(2);
-        secondUtility.setHuman(true);
 
 //		for (int i = 0; i < weapons.Length; i++)
 //			{
